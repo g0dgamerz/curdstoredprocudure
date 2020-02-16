@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>update_record</title>
+</head>
+<body>
+    @{
+        foreach (System.Data.DataRow dr in ViewBag.emprecord.Rows)
+        {
+            <form method="post">
+                <label>Name:</label>
+                <input type="text" name="Name" value="@dr["Name"]" />
+                <br />
+                <label>Address</label>
+                <input type="text" name="Address"  value="@dr["Address"]" required />
+                <br />
+                <label>City:</label>
+                <input type="text" name="City"  value="@dr["City"]" required />
+                <br />
+                <label>pincode</label>
+                <input type="text" name="pincode"  value="@dr["Pin_code"]" required />
+                <br />
+                <label>Designation:</label>
+                <input type="text" name="Designation"  value="@dr["Designation"]" required />
+                <br />
+                <input type="submit" value="submit" />
+            </form>
+        }
+    }
+
+
+    @{
+        if (TempData["msg"] != null)
+        {
+            <script>
+                alert('@TempData["msg"]');
+            </script>
+        }
+    }
+</body>
+</html>

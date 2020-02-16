@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Show_data</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Empl_id</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>city</th>
+                <th>pin code</th>
+                <th>Designation</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (System.Data.DataRow dr in ViewBag.emp.Rows)
+                {
+                  <tr>
+                        <td>@dr["Emp_id"]</td>
+                        <td>@dr["Name"]</td>
+                        <td>@dr["Address"]</td>
+                        <td>@dr["City"]</td>
+                        <td>@dr["Pin_code"]</td>
+                        <td>@dr["designation"]</td>
+                      <td>
+                          <a href="/home/update_record?id=@dr["Emp_id"]">Update</a>
+                          <a href="/home/delete_record?id=@dr["Emp_id"]">Delete</a>
+                      </td>
+
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</body>
+</html>
